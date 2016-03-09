@@ -21,3 +21,10 @@ def csv_splitter (originalFilePath, modifiedFilePath="line_split_file_modified.c
     puts "File doesnt exist: #{originalFilePath}"
   end
 end
+
+##allow for more robust differences in input
+if ARGV[0] && ARGV[1]
+  csv_splitter(ARGV[0], ARGV[1])
+elsif ARGV[0]
+  csv_splitter(ARGV[0])
+end
