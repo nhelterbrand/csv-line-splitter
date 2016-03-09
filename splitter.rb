@@ -2,7 +2,7 @@ require 'csv'
 
 #need to be able to
 #take multiple column headers to split into lines seperate lines
-def csv_splitter (originalFilePath, modifiedFilePath)
+def csv_splitter (originalFilePath, modifiedFilePath="line_split_file_modified.csv")
 
   if File.exist?(originalFilePath)
     outputCSV = CSV.open(modifiedFilePath, "wb")
@@ -21,4 +21,4 @@ def csv_splitter (originalFilePath, modifiedFilePath)
   end
 end
 
-csv_splitter("original_test_csv.csv", "modified_test_csv.csv")
+csv_splitter("original_test_csv.csv")
