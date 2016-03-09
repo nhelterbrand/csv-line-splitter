@@ -2,6 +2,7 @@ require 'csv'
 
 #need to be able to
 #take multiple column headers to split into lines seperate lines
+#and then output a csv file
 def csv_splitter (originalFilePath, modifiedFilePath="line_split_file_modified.csv")
 
   if File.exist?(originalFilePath)
@@ -20,5 +21,3 @@ def csv_splitter (originalFilePath, modifiedFilePath="line_split_file_modified.c
     puts "File doesnt exist: #{originalFilePath}"
   end
 end
-
-csv_splitter("original_test_csv.csv")
