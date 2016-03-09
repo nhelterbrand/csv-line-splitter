@@ -4,7 +4,6 @@ require 'csv'
 #take multiple column headers to split into lines seperate lines
 #and then output a csv file
 def csv_splitter (originalFilePath, modifiedFilePath="line_split_file_modified.csv")
-
   if File.exist?(originalFilePath)
     outputCSV = CSV.open(modifiedFilePath, "wb")
 
@@ -22,9 +21,14 @@ def csv_splitter (originalFilePath, modifiedFilePath="line_split_file_modified.c
   end
 end
 
-##allow for more robust differences in input
-if ARGV[0] && ARGV[1]
-  csv_splitter(ARGV[0], ARGV[1])
-elsif ARGV[0]
-  csv_splitter(ARGV[0])
+#set a test command
+if ARGV[0] == "test"
+  csv_splitter("original_test_csv.csv")
+else
+  ##allow for more robust differences in input
+  if ARGV[0] && ARGV[1]
+    csv_splitter(ARGV[0], ARGV[1])
+  elsif ARGV[0]
+    csv_splitter(ARGV[0])
+  end
 end
